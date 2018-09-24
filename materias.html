@@ -4,7 +4,7 @@
 <html lang='pt-br'>
 
 	<head>
-		<title>>{{name}}</title>
+		<title>{{name}}</title>
 		<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 		<link href="reset.css" rel="stylesheet">
 		<link href="style.css" rel="stylesheet">
@@ -65,7 +65,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<h3>Pensamento Crítico & Negócios</h3>
+					<h3 id="titulo-grande">Pensamento Crítico & Negócios</h3>
 					<div class="hidden">
 						<p><a href="materias.html?category=Pensamento+Crítico+e+Negócios&projeto=gde">Cases de Grandes Desafios da Engenharia</a></p>
 						<p><a href="materias.html?category=Pensamento+Crítico+e+Negócios&projeto=inovaincremental">Inovação Incremental para Empresa Existente</a></p>
@@ -84,16 +84,21 @@
 
 			<div id="loader" style="text-align:center"></div>
 			<div id="col-md-8">
-				<!-- <div class="subtopico"> -->
-					<h4 id='subtitulo'>{{name}}</h4>
-					<div class='texto'>
-						<ul>
-							{{#each items as |items index|}}
-								<li class='topico'>{{index}}: <p class='texto'>{{items}}<pre> </pre></p></li>
-							{{/each}}
-							<img src="{{imagem}}">
-						</ul>
-					</div>
+				<h4 id='subtitulo'>{{name}}</h4>  <!--nome do projeto-->
+				<div class='texto'>
+					<p>Descrição do Projeto:</p>
+					<p>{{descricao}}<pre> </pre></p> <!--pular uma linha-->
+
+
+					<p>Habilidades Desenvolvidas:</p>
+					{{#each habilidades as |hab numero|}}
+						<li class='texto3'>{{hab}}</li>
+					{{/each}}
+					<p><pre> </pre></p> <!--pular uma linha-->
+
+					<img src="{{imagem}}">
+					
+				</div>
 			</div>
 		</div>
 	</body>

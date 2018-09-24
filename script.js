@@ -7,6 +7,7 @@ window.onload = function(){
   }, 1200);
 }
 
+
 //Botão Menu
 function myFunction(y) {
     var x = document.getElementById("col-md-4");
@@ -22,17 +23,16 @@ function myFunction(y) {
 document.addEventListener('DOMContentLoaded', function() {
 
   let db = connect('https://codes-grupo2-p1.firebaseio.com/')
-
-  
   let params = extract()
-
   let path = '/' + params['category'] + '/projetos/' + params['projeto']
-
-  db.download(path, function(data) {
-   
+  
+ db.download(path, function(data) {
+   console.log(data['items']['Habilidades Desenvolvidas'])
     replace('body', {
         'name': data['name'],
-        'items': data['items'],
+        'descricao': data['items']['Descrição do Projeto'],
+        'habilidades': data['items']['Habilidades Desenvolvidas'],
+        'imagem': data['items']['Imagens'],
     })
     replace('title', {
         'name': data['name'],
@@ -40,34 +40,38 @@ document.addEventListener('DOMContentLoaded', function() {
   })
 })
 
+
+document.addEventListener('DOMContentLoaded', function() {
 //Carrossel
+  var slideIndex = 1;
+  var timer = null;
+  showSlides(slideIndex);
 
-var slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1} 
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none"; 
+  function plusSlides(n) {
+    clearTimeout(timer);
+    showSlides(slideIndex += n);
   }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block"; 
-  dots[slideIndex-1].className += " active";
-}
 
+  function currentSlide(n) {
+    clearTimeout(timer);
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n==undefined){n = ++slideIndex}
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    timer = setTimeout(showSlides, 3000);
+  } 
+})
