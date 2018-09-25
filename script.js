@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 //Loading gif
 window.onload = function(){
   document.getElementById('col-md-8').style.display = "none";
@@ -153,4 +153,4 @@ document.addEventListener('DOMContentLoaded', function() {
     timer = setTimeout(showSlides, 3000);
   } 
 })
->>>>>>> 95035dd19b5e4a00a690882a4a8de645f6fd14c2
+
