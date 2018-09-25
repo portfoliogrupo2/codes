@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 body {
 	background-color: #f7f5f4;
 	min-width: 300px;
@@ -970,5 +970,4 @@ img {
 		  0% { transform: rotate(0deg); }
 		  100% { transform: rotate(360deg); }
 		}
->>>>>>> 95035dd19b5e4a00a690882a4a8de645f6fd14c2
 	}
