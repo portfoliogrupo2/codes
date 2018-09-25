@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
   let path = '/' + params['category'] + '/projetos/' + params['projeto']
   
  db.download(path, function(data) {
-   console.log(data['items']['Habilidades Desenvolvidas'])
     replace('body', {
         'name': data['name'],
         'descricao': data['items']['Descrição do Projeto'],
