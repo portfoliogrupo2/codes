@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('footer').style.display = "none";
     setTimeout(function() {
       document.getElementById('loader').style.display = "none";
-      document.getElementById('col-md-8').style.display = "block"
+      document.getElementById('col-md-8').style.display = "block";
       document.getElementById('footer').style.display = "flex";
 
     }, 1200);
